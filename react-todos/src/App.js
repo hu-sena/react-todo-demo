@@ -14,13 +14,13 @@ function App() {
     
   ])
 
-  const addTodo = () => {
+  const addTodo = (description, assigned) => {
     // console.log('Our addTodo btn has been clicked!');
     if (todos.length > 0) {
       const newTodo = {
         rowNumber: todos.length + 1,
-        rowDescription: 'New Todo',
-        rowAssigned: 'User 3'
+        rowDescription: description,
+        rowAssigned: assigned
       };
       setTodos(todos => [...todos, newTodo])
       
@@ -36,7 +36,7 @@ function App() {
         <div className='card-body'>
           <TodoTable todos={todos}/>
           <button className='btn btn-primary' onClick={addTodo}>Add new todo</button>
-          <NewTodoForm/>
+          <NewTodoForm addTodo={addTodo}/>
         </div>
 
       </div>
