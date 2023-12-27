@@ -1,17 +1,17 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
 import TodoTable from './components/TodoTable';
 
 function App() {
   
-  const todos = [
+  const [todos, setTodos] = useState([
     {rowNumber: 1, rowDescription: 'Feed Puppy', rowAssigned: 'User 1'},
     {rowNumber: 2, rowDescription: 'Water Plants', rowAssigned: 'User 2'},
     {rowNumber: 3, rowDescription: 'Make Dinner', rowAssigned: 'User 1'},
     {rowNumber: 4, rowDescription: 'Charge Phone', rowAssigned: 'User 1'}
     
-  ]
+  ])
 
   const addTodo = () => {
     // console.log('Our addTodo btn has been clicked!');
@@ -21,8 +21,8 @@ function App() {
         rowDescription: 'New Todo',
         rowAssigned: 'User 3'
       };
-      todos.push(newTodo);
-      console.log(todos);
+      setTodos(todos => [...todos, newTodo])
+      
     }
   }
   
