@@ -15,16 +15,19 @@ function App() {
   ])
 
   const addTodo = (description, assigned) => {
-    // console.log('Our addTodo btn has been clicked!');
+    let rowNumber = 0;
     if (todos.length > 0) {
+      // auto increment new todo
+      rowNumber = todos[todos.length - 1].rowNumber + 1;
+    } else {
+      rowNumber = 1;
+    }
       const newTodo = {
         rowNumber: todos.length + 1,
         rowDescription: description,
         rowAssigned: assigned
       };
       setTodos(todos => [...todos, newTodo])
-      
-    }
   }
   
   return (
