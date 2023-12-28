@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
 
-import TodoTable from './components/TodoTable';
-import NewTodoForm from './components/NewTodoForm';
+import { TodoTable } from './components/TodoTable';
+import { NewTodoForm } from './components/NewTodoForm';
 
-function App() {
+export const App = () => {
 
   const [showAddTodoForm, setShowTodoForm] = useState(false);
 
@@ -16,7 +16,7 @@ function App() {
     
   ])
 
-  const addTodo = (description, assigned) => {
+  const addTodo = (description: string, assigned: string) => {
     let rowNumber = 0;
     if (todos.length > 0) {
       // auto increment new todo
@@ -32,7 +32,7 @@ function App() {
       setTodos(todos => [...todos, newTodo])
   }
   
-  const deleteTodo = (deleteTodoRowNumber) => {
+  const deleteTodo = (deleteTodoRowNumber: number) => {
     // only return rows that is not deleted 
     let filtered = todos.filter(function (value) {
       return value.rowNumber !== deleteTodoRowNumber;
@@ -62,4 +62,4 @@ function App() {
   );
 }
 
-export default App;
+
